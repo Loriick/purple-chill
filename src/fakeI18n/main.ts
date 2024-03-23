@@ -6,6 +6,7 @@ export const lang = {
     settings: 'Settings',
     home: 'Home',
     search: 'Search',
+    viewMore: 'View more',
   },
   fr: {
     movies: 'Films',
@@ -14,5 +15,6 @@ export const lang = {
     settings: 'Paramètres',
     home: 'Accueil',
     search: 'Rechercher',
+    viewMore: 'Voir plus',
   },
 }

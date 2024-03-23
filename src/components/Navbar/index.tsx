@@ -1,7 +1,9 @@
 export function Navbar() {
   return (
-    <header className="h-[6%] bg-red-500 px-6 flex items-center">
-      <p className="mr-auto">Movie Date</p>
+    <header className="h-[6%] px-6 flex items-center">
+      <p className="mr-auto text-[#735CDD] font-extrabold text-xl uppercase">
+        Purple chill
+      </p>
 
       <form className="flex ">
         <input
