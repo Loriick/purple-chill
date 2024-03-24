@@ -35,6 +35,7 @@ type Detail = {
   vote_count: number
   vote_average: number
   homepage: string
+  backdrop_path: string
   seasons?: string[]
 }
 

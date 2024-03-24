@@ -29,79 +29,87 @@ export function Detail() {
     original_name,
     first_air_date,
     seasons,
+    backdrop_path,
   } = data.detail
 
   return (
     <Layout>
-      <main className="w-[95%] h-full overflow-y-auto flex flex-col gap-y-4 ">
-        <h1 className="text-4xl font-bold">{title ?? original_name}</h1>
-        <section className="flex w-full">
-          <div className="w-2/6">
-            <img
-              className="h-96"
-              src={`${IMAGE_BASE_URL}${poster_path}`}
-              alt={title}
-            />
-          </div>
-          <div className="w-4/6 flex flex-col gap-y-3">
-            <p>{overview}</p>
-            {release_date ? (
-              <p className="font-semibold">
-                {lang['en'].release}: {release_date}
-              </p>
-            ) : null}
-            {first_air_date ? (
-              <p className="font-semibold">
-                {lang['en'].firstPublication}: {first_air_date}
-              </p>
-            ) : null}
-
-            {seasons ? (
-              <p className="font-semibold">
-                {lang['en'].seasons}: {seasons.length}
-              </p>
-            ) : null}
-            <div>
-              {genres.map((genre: Genre) => (
-                <Badge key={genre.id} genre={genre.name} />
-              ))}
+      <main
+        style={{
+          '--image-url': `url(${IMAGE_BASE_URL}${backdrop_path})`,
+        }}
+        className="w-full bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat h-full relative"
+      >
+        <div className="absolute top-0 left-0 w-full h-full backdrop-blur-lg flex flex-col gap-y-4 p-14">
+          <h1 className="text-4xl font-bold">{title ?? original_name}</h1>
+          <section className="flex w-full">
+            <div className="w-2/6">
+              <img
+                className="h-96"
+                src={`${IMAGE_BASE_URL}${poster_path}`}
+                alt={title}
+              />
             </div>
-            <Rating numberOfVotes={vote_count} rate={vote_average} />
+            <div className="w-4/6 flex flex-col gap-y-3">
+              <p>{overview}</p>
+              {release_date ? (
+                <p className="font-semibold">
+                  {lang['en'].release}: {release_date}
+                </p>
+              ) : null}
+              {first_air_date ? (
+                <p className="font-semibold">
+                  {lang['en'].firstPublication}: {first_air_date}
+                </p>
+              ) : null}
 
-            <div className="flex gap-x-2 items-center">
-              <div onClick={() => setIsFavorite((prev) => !prev)}>
-                {isFavorite ? (
-                  <FaHeart className="text-red-500 text-3xl" />
-                ) : (
-                  <FaRegHeart className="text-3xl" />
-                )}
+              {seasons ? (
+                <p className="font-semibold">
+                  {lang['en'].seasons}: {seasons.length}
+                </p>
+              ) : null}
+              <div>
+                {genres.map((genre: Genre) => (
+                  <Badge key={genre.id} genre={genre.name} />
+                ))}
+              </div>
+              <Rating numberOfVotes={vote_count} rate={vote_average} />
+
+              <div className="flex gap-x-2 items-center">
+                <div onClick={() => setIsFavorite((prev) => !prev)}>
+                  {isFavorite ? (
+                    <FaHeart className="text-red-500 text-3xl" />
+                  ) : (
+                    <FaRegHeart className="text-3xl" />
+                  )}
+                </div>
+
+                <p>
+                  {isFavorite
+                    ? lang['en'].inYourFavorites
+                    : lang['en'].addInFavorites}
+                </p>
               </div>
 
-              <p>
-                {isFavorite
-                  ? lang['en'].inYourFavorites
-                  : lang['en'].addInFavorites}
-              </p>
+              {homepage ? (
+                <a
+                  href={homepage}
+                  target="blank"
+                  className="w-fit mt-auto self-end text-center bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
+                >
+                  {lang['en'].websiteLink}
+                </a>
+              ) : null}
             </div>
-
-            {homepage ? (
-              <a
-                href={homepage}
-                target="blank"
-                className="w-fit mt-auto self-end text-center bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
-              >
-                {lang['en'].websiteLink}
-              </a>
-            ) : null}
-          </div>
-        </section>
-        {type ? (
-          <MoviesSelection
-            title={lang['en'].similar}
-            movies={data.similar.results}
-            type={type}
-          />
-        ) : null}
+          </section>
+          {type ? (
+            <MoviesSelection
+              title={lang['en'].similar}
+              movies={data.similar.results}
+              type={type}
+            />
+          ) : null}
+        </div>
       </main>
     </Layout>
   )

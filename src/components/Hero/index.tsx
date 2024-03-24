@@ -8,8 +8,6 @@ type HeroProps = {
 }
 
 export function Hero({ movie }: HeroProps) {
-  console.log(movie)
-
   console.log(`${IMAGE_BASE_URL}${movie.backdrop_path}`)
   return (
     <div
