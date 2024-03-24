@@ -2,13 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Movies } from '@pages/Movies'
-import { Series } from '@pages/Series'
 import { Favorites } from '@pages/Favorites'
 import { Detail, detailLoader } from '@pages/Detail'
 import { Home } from '@pages/Home'
 
 import './index.css'
+import { Search } from '@pages/Search'
 
 const router = createBrowserRouter([
   {
@@ -16,13 +15,10 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/movies',
-    element: <Movies />,
+    path: '/search',
+    element: <Search />,
   },
-  {
-    path: '/series',
-    element: <Series />,
-  },
+
   {
     path: '/favorites',
     element: <Favorites />,
