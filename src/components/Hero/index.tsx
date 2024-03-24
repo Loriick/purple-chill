@@ -2,13 +2,17 @@ import { lang } from '@src/fakeI18n/main'
 import { IMAGE_BASE_URL } from '@src/utils/constant'
 import type { Movie } from 'src/utils/types'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { MainState } from '@src/context'
 
 type HeroProps = {
   movie: Movie
 }
 
 export function Hero({ movie }: HeroProps) {
-  console.log(`${IMAGE_BASE_URL}${movie.backdrop_path}`)
+  const context = useContext(MainState)
+  if (!context) return undefined
+
   return (
     <div
       style={{ '--image-url': `url(${IMAGE_BASE_URL}${movie.backdrop_path})` }}
@@ -22,7 +26,7 @@ export function Hero({ movie }: HeroProps) {
           className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
           to={`/movie/${movie.id}`}
         >
-          {lang['en'].viewMore}
+          {lang[context.state.lang].viewMore}
         </Link>
       </div>
     </div>

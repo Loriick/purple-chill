@@ -7,18 +7,13 @@ import { Detail, detailLoader } from '@pages/Detail'
 import { Home } from '@pages/Home'
 
 import './index.css'
-import { Search } from '@pages/Search'
+import { StateProvider } from './context'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
   },
-  {
-    path: '/search',
-    element: <Search />,
-  },
-
   {
     path: '/favorites',
     element: <Favorites />,
@@ -35,7 +30,9 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <StateProvider>
+        <RouterProvider router={router} />
+      </StateProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 )

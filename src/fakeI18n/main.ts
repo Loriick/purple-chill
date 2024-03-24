@@ -14,6 +14,8 @@ export const lang = {
     seasons: 'Number of seasons',
     addInFavorites: 'Add to favorites',
     inYourFavorites: 'In your favorites',
+    topRatedMovie: 'Top rated movies',
+    topRatedSeries: 'Top rated series',
   },
   fr: {
     movies: 'Films',
@@ -30,5 +32,7 @@ export const lang = {
     seasons: 'Nombre de saisons',
     addInFavorites: 'Mettre dans vos favoris',
     inYourFavorites: 'Dans vos favoris',
+    topRatedMovie: 'Films les mieux notés',
+    topRatedSeries: 'Séries les mieux notées',
   },
 }

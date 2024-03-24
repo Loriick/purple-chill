@@ -1,4 +1,5 @@
 // Movie or TV
+type Lang = 'en' | 'fr'
 
 type Movie = {
   adult: string
@@ -48,4 +49,4 @@ type DetailPage = {
   similar: Similar
 }
 
-export type { Movie, Serie, Genre, DetailPage }
+export type { Movie, Serie, Genre, DetailPage, Lang }
