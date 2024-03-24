@@ -16,6 +16,7 @@ export const lang = {
     inYourFavorites: 'In your favorites',
     topRatedMovie: 'Top rated movies',
     topRatedSeries: 'Top rated series',
+    favoritesTitle: 'My favorities',
   },
   fr: {
     movies: 'Films',
@@ -34,5 +35,6 @@ export const lang = {
     inYourFavorites: 'Dans vos favoris',
     topRatedMovie: 'Films les mieux notés',
     topRatedSeries: 'Séries les mieux notées',
+    favoritesTitle: 'Mes favoris',
   },
 }

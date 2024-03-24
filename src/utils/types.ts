@@ -26,6 +26,7 @@ type Genre = {
 }
 
 type Detail = {
+  id: number
   title?: string
   original_name?: string
   poster_path: string

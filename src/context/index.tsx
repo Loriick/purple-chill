@@ -4,11 +4,11 @@ import { reducer } from './reducer'
 
 export type State = {
   lang: Lang
-  favoritesList: Movie[]
+  idFavoritesList: Movie['id'][]
 }
 export type Action = {
   type: string
-  payload: Lang | Movie | Movie['id']
+  payload: Lang | Movie['id']
 }
 
 type Context = {
@@ -18,7 +18,7 @@ type Context = {
 
 const INITIAL_STATE: State = {
   lang: navigator.language.includes('fr') ? 'fr' : 'en',
-  favoritesList: [],
+  idFavoritesList: [],
 }
 
 export const MainState = createContext<Context | null>(null)

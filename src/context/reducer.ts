@@ -12,14 +12,20 @@ export function reducer(state: State, action: Action): State {
     case ADD_TO_FAVORITES:
       return {
         ...state,
-        favoritesList: [...state.favoritesList, action.payload as Movie],
+        idFavoritesList: [
+          ...state.idFavoritesList,
+          action.payload as Movie['id'],
+        ],
       }
     case REMOVE_TO_FAVORITES:
+      // eslint-disable-next-line no-case-declarations
+      const index = state.idFavoritesList.findIndex(
+        (id) => id === action.payload,
+      )
+
       return {
         ...state,
-        favoritesList: state.favoritesList.filter(
-          (movie) => movie.id !== (action.payload as Movie['id']),
-        ),
+        idFavoritesList: state.idFavoritesList.splice(index, 1),
       }
     default:
       return state

@@ -7,15 +7,16 @@ import { getDetails } from '@src/utils/api'
 import { IMAGE_BASE_URL } from '@src/utils/constant'
 import { DetailPage, Genre } from '@src/utils/types'
 import { Params, useLoaderData, useParams } from 'react-router-dom'
-import { FaRegHeart, FaHeart } from 'react-icons/fa'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { MainState } from '@src/context'
+import { Favorite } from '@components/Favorite'
 
 export function Detail() {
-  const [isFavorite, setIsFavorite] = useState(false)
   const data = useLoaderData() as DetailPage
   const { type } = useParams()
+  const context = useContext(MainState)
 
-  console.log(data)
+  if (!context) return undefined
 
   const {
     title,
@@ -30,6 +31,7 @@ export function Detail() {
     first_air_date,
     seasons,
     backdrop_path,
+    id,
   } = data.detail
 
   return (
@@ -74,23 +76,7 @@ export function Detail() {
                 ))}
               </div>
               <Rating numberOfVotes={vote_count} rate={vote_average} />
-
-              <div className="flex gap-x-2 items-center">
-                <div onClick={() => setIsFavorite((prev) => !prev)}>
-                  {isFavorite ? (
-                    <FaHeart className="text-red-500 text-3xl" />
-                  ) : (
-                    <FaRegHeart className="text-3xl" />
-                  )}
-                </div>
-
-                <p>
-                  {isFavorite
-                    ? lang['en'].inYourFavorites
-                    : lang['en'].addInFavorites}
-                </p>
-              </div>
-
+              <Favorite id={id} />
               {homepage ? (
                 <a
                   href={homepage}
