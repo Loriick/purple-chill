@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { IMAGE_BASE_URL } from '../../utils/constant'
-import { Movie } from 'src/utils/types'
+import { IMAGE_BASE_URL } from '@src/utils/constant'
+import { Movie } from '@src/utils/types'
 
 type HomeMoviesSectionProps = {
   title: string

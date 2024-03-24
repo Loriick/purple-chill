@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react'
 
 export function Layout({ children }: PropsWithChildren) {
   return (
-    <div className="h-screen h-lvh">
+    <div className="h-lvh">
       <Navbar />
       <div className="w-full h-[94%] flex">
         <Sidebar />

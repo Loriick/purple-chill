@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { lang } from '../../fakeI18n/main'
+import { lang } from '@src/fakeI18n/main'
 import { FaTv, FaVideo, FaHome, FaStar } from 'react-icons/fa'
 
 const defaultLang = 'fr'

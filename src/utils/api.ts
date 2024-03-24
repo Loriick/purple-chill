@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.themoviedb.org/3'
+import { BASE_URL } from './constant'
 
 async function getPopularMovies() {
   const response = await fetch(

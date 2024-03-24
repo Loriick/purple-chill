@@ -1,6 +1,6 @@
 import { Layout } from '@components/Layout'
 import { useQueries } from '@tanstack/react-query'
-import { getPopularMovies, getPopularSeries } from '../../utils/api'
+import { getPopularMovies, getPopularSeries } from '@src/utils/api'
 import { Hero } from '@pages/Hero'
 import { HomeMoviesSection } from '@pages/HomeMoviesSection'
 

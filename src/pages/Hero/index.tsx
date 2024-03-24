@@ -1,5 +1,5 @@
-import { lang } from '../../fakeI18n/main'
-import { IMAGE_BASE_URL } from '../../utils/constant'
+import { lang } from '@src/fakeI18n/main'
+import { IMAGE_BASE_URL } from '@src/utils/constant'
 import type { Movie } from 'src/utils/types'
 import { Link } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ export function Hero({ movie }: HeroProps) {
   return (
     <div
       style={{ '--image-url': `url(${IMAGE_BASE_URL}${movie.backdrop_path})` }}
-      className={`h-[90%] w-full bg-[image:var(--image-url)] w-full bg-cover bg-center bg-no-repeat relative`}
+      className={`h-[90%] bg-[image:var(--image-url)] w-full bg-cover bg-center bg-no-repeat relative`}
     >
       <div className="absolute w-full h-full bg-black/30 top-0 left-0 flex flex-col gap-y-2 items-end justify-end p-4 animate-[fade-in_0.8s_linear_forwards]">
         <h1 className="text-9xl w-2/3	text-right font-black opacity-0 animate-[fade-in_1s_0.8s_linear_forwards]">
