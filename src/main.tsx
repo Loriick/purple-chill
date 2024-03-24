@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Movies } from '@pages/Movies'
 import { Series } from '@pages/Series'
 import { Favorites } from '@pages/Favorites'
-import { Detail } from '@pages/Detail'
+import { Detail, detailLoader } from '@pages/Detail'
 import { Home } from '@pages/Home'
 
 import './index.css'
@@ -28,11 +28,8 @@ const router = createBrowserRouter([
     element: <Favorites />,
   },
   {
-    path: '/movie/:movieId',
-    element: <Detail />,
-  },
-  {
-    path: '/serie/:showId',
+    path: '/:type/:id',
+    loader: detailLoader,
     element: <Detail />,
   },
 ])

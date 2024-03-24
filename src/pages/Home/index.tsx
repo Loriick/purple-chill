@@ -1,8 +1,8 @@
 import { Layout } from '@components/Layout'
 import { useQueries } from '@tanstack/react-query'
 import { getPopularMovies, getPopularSeries } from '@src/utils/api'
-import { Hero } from '@pages/Hero'
-import { HomeMoviesSection } from '@pages/HomeMoviesSection'
+import { Hero } from '@components/Hero'
+import { MoviesSelection } from '@components/MoviesSelection'
 
 export function Home() {
   const results = useQueries({
@@ -33,15 +33,15 @@ export function Home() {
             ]
           }
         />
-        <HomeMoviesSection
+        <MoviesSelection
           movies={results[0].data.results}
           title="Top rated movies"
-          category="movie"
+          type="movie"
         />
-        <HomeMoviesSection
+        <MoviesSelection
           movies={results[1].data.results}
           title="Top rated series"
-          category="serie"
+          type="tv"
         />
       </main>
     </Layout>

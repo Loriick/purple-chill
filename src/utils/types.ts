@@ -19,4 +19,32 @@ type Movie = {
 
 type Serie = Movie
 
-export type { Movie, Serie }
+type Genre = {
+  id: number
+  name: string
+}
+
+type Detail = {
+  title?: string
+  original_name?: string
+  poster_path: string
+  overview: string
+  release_date?: string
+  first_air_date?: string
+  genres: Genre[]
+  vote_count: number
+  vote_average: number
+  homepage: string
+  seasons?: string[]
+}
+
+type Similar = {
+  results: Movie[]
+}
+
+type DetailPage = {
+  detail: Detail
+  similar: Similar
+}
+
+export type { Movie, Serie, Genre, DetailPage }

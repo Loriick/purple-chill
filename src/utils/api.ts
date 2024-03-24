@@ -14,11 +14,21 @@ async function getPopularSeries() {
   return response.json()
 }
 
-async function getTrendingAll() {
+async function getDetails({ type, id }: { type?: string; id?: string }) {
+  if (!type || !id) return undefined
+
   const response = await fetch(
-    `${BASE_URL}/trending/all/day?api_key=${import.meta.env.VITE_API_KEY}`,
+    `${BASE_URL}/${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}`,
   )
-  return response.json()
+
+  const responseSimilar = await fetch(
+    `${BASE_URL}/${type}/${id}/similar?api_key=${import.meta.env.VITE_API_KEY}`,
+  )
+
+  return {
+    detail: await response.json(),
+    similar: await responseSimilar.json(),
+  }
 }
 
-export { getPopularMovies, getPopularSeries, getTrendingAll }
+export { getPopularMovies, getPopularSeries, getDetails }
