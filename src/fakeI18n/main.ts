@@ -17,6 +17,10 @@ export const lang = {
     topRatedMovie: 'Top rated movies',
     topRatedSeries: 'Top rated series',
     favoritesTitle: 'My favorities',
+    goBack: 'Go to home',
+    error: "Oops Looks like something's wrong",
+    sorry: "We're sorry",
+    retry: 'Retry',
   },
   fr: {
     movies: 'Films',
@@ -36,5 +40,9 @@ export const lang = {
     topRatedMovie: 'Films les mieux notés',
     topRatedSeries: 'Séries les mieux notées',
     favoritesTitle: 'Mes favoris',
+    goBack: "Aller à l'accueil",
+    error: 'Oups On dirait que quelque chose ne va pas',
+    sorry: 'Nous sommes désolé',
+    retry: 'Réessayer',
   },
 }

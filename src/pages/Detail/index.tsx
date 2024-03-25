@@ -10,6 +10,9 @@ import { Params, useLoaderData, useParams } from 'react-router-dom'
 import { useContext } from 'react'
 import { MainState } from '@src/context'
 import { Favorite } from '@components/Favorite'
+import { Loader } from '@components/Loader'
+import { toast } from 'react-toastify'
+import { Error } from '@pages/Error'
 
 export function Detail() {
   const data = useLoaderData() as DetailPage
@@ -17,6 +20,31 @@ export function Detail() {
   const context = useContext(MainState)
 
   if (!context) return undefined
+
+  if (!data && typeof data !== 'string') {
+    return (
+      <Layout>
+        <div className="w-full h-full flex items-center justify-center">
+          <Loader />
+        </div>
+      </Layout>
+    )
+  }
+
+  if (!data && typeof data === 'string') {
+    toast.error(lang[context.state.lang].error, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    })
+
+    return <Error />
+  }
 
   const {
     title,
@@ -106,7 +134,7 @@ export function detailLoader({
   params,
 }: {
   params: Params
-}): Promise<DetailPage | undefined> {
+}): Promise<DetailPage | string | undefined> {
   const { type, id } = params
 
   return getDetails({ type, id })
