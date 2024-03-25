@@ -31,4 +31,12 @@ async function getDetails({ type, id }: { type?: string; id?: string }) {
   }
 }
 
-export { getPopularMovies, getPopularSeries, getDetails }
+async function searchMovie(title: string) {
+  const response = await fetch(
+    `${BASE_URL}/search/collection?query=${title}&page=1&api_key=${import.meta.env.VITE_API_KEY}`,
+  )
+
+  return response.json()
+}
+
+export { getPopularMovies, getPopularSeries, getDetails, searchMovie }

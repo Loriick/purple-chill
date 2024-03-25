@@ -1,9 +1,8 @@
 import { MainState } from '@src/context'
-import { SET_LANGUAGE } from '@src/context/action'
+import { SET_LANGUAGE, TOGGLE_MODAL } from '@src/context/action'
 import { lang } from '@src/fakeI18n/main'
 import { Lang } from '@src/utils/types'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
 
 export function Navbar() {
   const context = useContext(MainState)
@@ -16,6 +15,13 @@ export function Navbar() {
     dispatch({
       type: SET_LANGUAGE,
       payload: lang,
+    })
+  }
+
+  const setOpenModal = () => {
+    dispatch({
+      type: TOGGLE_MODAL,
+      payload: !state.isModalOpen,
     })
   }
   return (
@@ -38,7 +44,7 @@ export function Navbar() {
           FR
         </span>
       </div>
-      <Link to="/search" className="flex">
+      <div onClick={setOpenModal} className="flex">
         <input
           type="text"
           className="text-[#343434] text-sm rounded-md focus:ring-[#6146D8] focus:border-[#6146D8] block w-full p-2.5 mr-4"
@@ -50,7 +56,7 @@ export function Navbar() {
         >
           {lang[state.lang].search}
         </button>
-      </Link>
+      </div>
     </header>
   )
 }

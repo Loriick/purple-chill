@@ -5,10 +5,11 @@ import { reducer } from './reducer'
 export type State = {
   lang: Lang
   idFavoritesList: Movie['id'][]
+  isModalOpen: boolean
 }
 export type Action = {
   type: string
-  payload: Lang | Movie['id']
+  payload: Lang | Movie['id'] | boolean
 }
 
 type Context = {
@@ -19,6 +20,7 @@ type Context = {
 const INITIAL_STATE: State = {
   lang: navigator.language.includes('fr') ? 'fr' : 'en',
   idFavoritesList: [],
+  isModalOpen: false,
 }
 
 export const MainState = createContext<Context | null>(null)

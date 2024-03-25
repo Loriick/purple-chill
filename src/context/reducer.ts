@@ -1,6 +1,11 @@
 import { Movie, Lang } from '@src/utils/types'
 import { Action, State } from '.'
-import { ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_LANGUAGE } from './action'
+import {
+  ADD_TO_FAVORITES,
+  REMOVE_TO_FAVORITES,
+  SET_LANGUAGE,
+  TOGGLE_MODAL,
+} from './action'
 
 export function reducer(state: State, action: Action): State {
   switch (action.type) {
@@ -26,6 +31,12 @@ export function reducer(state: State, action: Action): State {
       return {
         ...state,
         idFavoritesList: state.idFavoritesList.splice(index, 1),
+      }
+
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        isModalOpen: action.payload as boolean,
       }
     default:
       return state
