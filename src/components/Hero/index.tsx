@@ -23,7 +23,7 @@ export function Hero({ movie }: HeroProps) {
           {movie.title}
         </h1>
         <Link
-          className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
+          className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 text-center w-40 rounded-md"
           to={`/movie/${movie.id}`}
         >
           {lang[context.state.lang].viewMore}

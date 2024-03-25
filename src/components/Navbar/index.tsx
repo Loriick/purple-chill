@@ -52,7 +52,7 @@ export function Navbar() {
         />
         <button
           type="submit"
-          className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
+          className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 text-center rounded-md w-48"
         >
           {lang[state.lang].search}
         </button>

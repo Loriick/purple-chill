@@ -84,20 +84,20 @@ export function Detail() {
               <p>{overview}</p>
               {release_date ? (
                 <p className="font-semibold">
-                  {lang['en'].release}:{' '}
+                  {lang[context.state.lang].release}:{' '}
                   {new Date(release_date).toLocaleDateString('fr')}
                 </p>
               ) : null}
               {first_air_date ? (
                 <p className="font-semibold">
-                  {lang['en'].firstPublication}:{' '}
+                  {lang[context.state.lang].firstPublication}:{' '}
                   {new Date(first_air_date).toLocaleDateString('fr')}
                 </p>
               ) : null}
 
               {seasons ? (
                 <p className="font-semibold">
-                  {lang['en'].seasons}: {seasons.length}
+                  {lang[context.state.lang].seasons}: {seasons.length}
                 </p>
               ) : null}
               <div>
@@ -111,16 +111,16 @@ export function Detail() {
                 <a
                   href={homepage}
                   target="blank"
-                  className="w-fit mt-auto self-end text-center bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 px-4 rounded-md"
+                  className="mt-auto self-end bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 text-center w-52 rounded-md"
                 >
-                  {lang['en'].websiteLink}
+                  {lang[context.state.lang].websiteLink}
                 </a>
               ) : null}
             </div>
           </section>
           {type ? (
             <MoviesSelection
-              title={lang['en'].similar}
+              title={lang[context.state.lang].similar}
               movies={data.similar.results}
               type={type}
             />
