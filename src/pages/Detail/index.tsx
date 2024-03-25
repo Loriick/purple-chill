@@ -84,12 +84,14 @@ export function Detail() {
               <p>{overview}</p>
               {release_date ? (
                 <p className="font-semibold">
-                  {lang['en'].release}: {release_date}
+                  {lang['en'].release}:{' '}
+                  {new Date(release_date).toLocaleDateString('fr')}
                 </p>
               ) : null}
               {first_air_date ? (
                 <p className="font-semibold">
-                  {lang['en'].firstPublication}: {first_air_date}
+                  {lang['en'].firstPublication}:{' '}
+                  {new Date(first_air_date).toLocaleDateString('fr')}
                 </p>
               ) : null}
 
