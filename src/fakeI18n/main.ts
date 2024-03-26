@@ -21,6 +21,7 @@ export const lang = {
     error: "Oops Looks like something's wrong",
     sorry: "We're sorry",
     retry: 'Retry',
+    searchPlaceholder: 'Tap or click on the microphone to speak',
   },
   fr: {
     movies: 'Films',
@@ -44,5 +45,6 @@ export const lang = {
     error: 'Oups On dirait que quelque chose ne va pas',
     sorry: 'Nous sommes désolé',
     retry: 'Réessayer',
+    searchPlaceholder: 'Tapez ou cliquez sur le microphone pour parler',
   },
 }

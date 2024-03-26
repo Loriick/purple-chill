@@ -1,4 +1,4 @@
-import { Movie, Lang } from '@src/utils/types'
+import { Media, Lang } from '@src/utils/types'
 import { Action, State } from '.'
 import {
   ADD_TO_FAVORITES,
@@ -19,7 +19,7 @@ export function reducer(state: State, action: Action): State {
         ...state,
         idFavoritesList: [
           ...state.idFavoritesList,
-          action.payload as Movie['id'],
+          action.payload as Media['id'],
         ],
       }
     case REMOVE_TO_FAVORITES:

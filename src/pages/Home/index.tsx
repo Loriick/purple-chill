@@ -2,7 +2,7 @@ import { Layout } from '@components/Layout'
 import { useQueries } from '@tanstack/react-query'
 import { getPopularMovies, getPopularSeries } from '@src/utils/api'
 import { Hero } from '@components/Hero'
-import { MoviesSelection } from '@components/MoviesSelection'
+import { MediasSelection } from '@components/MediasSelection'
 import { useContext } from 'react'
 import { MainState } from '@src/context'
 import { lang } from '@src/fakeI18n/main'
@@ -53,7 +53,7 @@ export function Home() {
           <Loader />
         </div>
       ) : (
-        <main className="w-full h-full overflow-y-auto ">
+        <main className="w-full h-full overflow-y-auto">
           <Hero
             movie={
               results[0].data.results[
@@ -62,13 +62,13 @@ export function Home() {
             }
           />
           <br />
-          <MoviesSelection
-            movies={results[0].data.results}
+          <MediasSelection
+            medias={results[0].data.results}
             title={lang[context.state.lang].topRatedMovie}
             type="movie"
           />
-          <MoviesSelection
-            movies={results[1].data.results}
+          <MediasSelection
+            medias={results[1].data.results}
             title={lang[context.state.lang].topRatedSeries}
             type="tv"
           />

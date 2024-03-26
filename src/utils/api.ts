@@ -76,10 +76,10 @@ async function getDetails({
   }
 }
 
-async function searchMovie(title: string) {
+async function searchMedia(title: string) {
   try {
     const response = await fetch(
-      `${BASE_URL}/search/collection?query=${title}&page=1&api_key=${import.meta.env.VITE_API_KEY}`,
+      `${BASE_URL}/search/multi?query=${title}&page=1&api_key=${import.meta.env.VITE_API_KEY}`,
     )
 
     if (!response.ok) {
@@ -96,4 +96,4 @@ async function searchMovie(title: string) {
   }
 }
 
-export { getPopularMovies, getPopularSeries, getDetails, searchMovie }
+export { getPopularMovies, getPopularSeries, getDetails, searchMedia }

@@ -1,15 +1,15 @@
-import { Movie, Lang } from '@src/utils/types'
+import { Media, Lang } from '@src/utils/types'
 import { Dispatch, PropsWithChildren, createContext, useReducer } from 'react'
 import { reducer } from './reducer'
 
 export type State = {
   lang: Lang
-  idFavoritesList: Movie['id'][]
+  idFavoritesList: Media['id'][]
   isModalOpen: boolean
 }
 export type Action = {
   type: string
-  payload: Lang | Movie['id'] | boolean
+  payload: Lang | Media['id'] | boolean
 }
 
 type Context = {

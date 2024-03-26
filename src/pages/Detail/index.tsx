@@ -1,6 +1,6 @@
 import { Badge } from '@components/Badge'
 import { Layout } from '@components/Layout'
-import { MoviesSelection } from '@components/MoviesSelection'
+import { MediasSelection } from '@components/MediasSelection'
 import { Rating } from '@components/Rating'
 import { lang } from '@src/fakeI18n/main'
 import { getDetails } from '@src/utils/api'
@@ -70,17 +70,19 @@ export function Detail() {
         }}
         className="w-full bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat h-full relative"
       >
-        <div className="absolute top-0 left-0 w-full h-full backdrop-blur-lg flex flex-col gap-y-4 p-14">
-          <h1 className="text-4xl font-bold">{title ?? original_name}</h1>
-          <section className="flex w-full">
-            <div className="w-2/6">
+        <div className="absolute top-0 left-0 w-full h-full backdrop-blur-lg flex flex-col gap-y-4 p-6 md:p-14">
+          <h1 className="text-4xl font-bold text-center md:text-start">
+            {title ?? original_name}
+          </h1>
+          <section className="flex flex-col md:flex-row w-full mb-20 md:mb-0">
+            <div className="w-full flex justify-center md:block md:w-2/6">
               <img
                 className="h-96"
                 src={`${IMAGE_BASE_URL}${poster_path}`}
                 alt={title}
               />
             </div>
-            <div className="w-4/6 flex flex-col gap-y-3">
+            <div className="w-full md:w-4/6 flex flex-col gap-y-3">
               <p>{overview}</p>
               {release_date ? (
                 <p className="font-semibold">
@@ -119,9 +121,9 @@ export function Detail() {
             </div>
           </section>
           {type ? (
-            <MoviesSelection
+            <MediasSelection
               title={lang[context.state.lang].similar}
-              movies={data.similar.results}
+              medias={data.similar.results}
               type={type}
             />
           ) : null}

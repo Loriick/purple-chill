@@ -1,7 +1,6 @@
-// Movie or TV
 type Lang = 'en' | 'fr'
 
-type Movie = {
+type Media = {
   adult: string
   backdrop_path: string
   genre_ids: number[]
@@ -16,9 +15,8 @@ type Movie = {
   video: boolean
   vote_average: number
   vote_count: number
+  media_type?: string
 }
-
-type Serie = Movie
 
 type Genre = {
   id: number
@@ -42,7 +40,7 @@ type Detail = {
 }
 
 type Similar = {
-  results: Movie[]
+  results: Media[]
 }
 
 type DetailPage = {
@@ -50,4 +48,4 @@ type DetailPage = {
   similar: Similar
 }
 
-export type { Movie, Serie, Genre, DetailPage, Lang }
+export type { Media, Genre, DetailPage, Lang }

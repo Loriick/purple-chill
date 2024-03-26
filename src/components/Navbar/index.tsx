@@ -1,8 +1,9 @@
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { MainState } from '@src/context'
 import { SET_LANGUAGE, TOGGLE_MODAL } from '@src/context/action'
 import { lang } from '@src/fakeI18n/main'
 import { Lang } from '@src/utils/types'
-import { useContext } from 'react'
 
 export function Navbar() {
   const context = useContext(MainState)
@@ -26,9 +27,12 @@ export function Navbar() {
   }
   return (
     <header className="h-[6%] px-6 flex items-center">
-      <p className="mr-auto text-[#735CDD] font-extrabold text-xl uppercase">
+      <Link
+        to="/"
+        className="mr-auto text-[#735CDD] font-extrabold text-xl uppercase"
+      >
         Purple chill
-      </p>
+      </Link>
       <div className="mr-10 flex gap-x-2">
         <span
           className={`cursor-pointer ${state.lang === 'en' ? 'font-semibold text-[#735CDD]' : ''}`}
@@ -52,7 +56,7 @@ export function Navbar() {
         />
         <button
           type="submit"
-          className="bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 text-center rounded-md w-48"
+          className="hidden md:block bg-[#735CDD] md:hover:bg-[#6146D8] md:transition-colors md:ease-in-out md:duration-200 font-bold py-2 text-center rounded-md w-48"
         >
           {lang[state.lang].search}
         </button>
