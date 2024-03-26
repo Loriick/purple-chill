@@ -13,7 +13,7 @@ and a little integration test
 - React-router
 - React-query
 - Vitest
-- Speech recognition API
+- Speech recognition API (only on chrome 🥲)
 
 ## How to use it
 
